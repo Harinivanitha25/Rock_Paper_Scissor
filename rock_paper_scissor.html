@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Inika' rel='stylesheet'>
+    <title>Rock_Paper_Scissor</title>
+    <style>
+       *{
+         font-family: 'Inika';
+       }
+        button{
+            
+            margin:0px 20px ;
+            border-radius: 20px;
+            padding:8px;
+          
+        }
+        
+        .score{
+           
+            display:flex;
+            width:300px;
+            height: 60px;
+            justify-content: space-around;
+              
+        }
+        .box{
+          justify-items: center;
+          margin:40px 130px;
+          background-color: #d3d3f9;
+          padding: 0px 0px 30px 0px;
+          border-radius: 9%;
+          border: 2px solid black;
+        }  
+        .result{
+         background-color:rgb(249, 249, 249);
+         width:320px;
+         justify-items: center;
+         padding:1px 0px;
+         border-radius: 20px;
+
+         
+        }
+        .p{
+         width:70px;
+         height: 100px;
+         border-radius: 10px;
+        }
+         
+    </style>
+</head>
+<body>
+  <div  class="box">
+    <h1 ><u>Rock Paper Scissor</u></h1>
+    <div class="score"><h2>User Score</h2><h2 style="margin-left:18px;" >:</h2><h2  id="userscore" style="margin-right: 20px;">0</h2></div>
+    <div class="score" style="margin-right: 53px;"><h2>Computer Score</h2><h2 >:</h2><h2 id="computerscore">0</h2></div><br><br>
+    <div class="btn"><button onclick="Rock()"  ><img  class="p" src="rock.png" alt=""></button>
+    <button onclick="Paper()" ><img class="p" src="paper.png" alt=""></button>
+    <button onclick="Scissor()" > <img class="p" src="scissor.png" alt=""> </button></div><br>
+    <div class="score"><h2 style="position: fixed; margin-right: 75px;" >User</h2><h2 style="position: fixed;" >:</h2><h2 style="margin-left:120px;" id="userchoice" ></h2></div>
+    <div class="score" ><h2 style="margin-right:130px; position: fixed;" >Computer</h2><h2 style="position: fixed;">:</h2><h2 style="margin-left:120px;" id="computerchoice"></h2></div><br>
+    <div class="result"><h2  id="resultd">Result</h2></div>
+    </div>
+    <script>
+  
+    let userscore=0
+    let computerscore=0
+       let userscore1=document.getElementById("userscore")
+    let computerscore1=document.getElementById("computerscore")
+    let userc=document.getElementById("userchoice")
+    let computerc=document.getElementById("computerchoice")
+    let resultd1=document.getElementById("resultd")
+    function Rock(){
+        let num=Math.round(Math.random()*100)
+        let computer=" ";
+        if(num>0 && num<=33)
+          {computer="Rock";}
+        else if(num>33 && num<=66)
+           {computer="Paper";}
+        else 
+       {    computer="Scissor";}
+        console.log(computer)
+        let result=" "
+        if(computer==="Rock")
+             result="Tie"
+        else if(computer==="Paper")
+          { result="Computer Wins"
+            computerscore++
+          }
+        else
+         { result="User Wins"
+            userscore++
+         }
+         userc.innerHTML="Rock"
+         userscore1.innerHTML=userscore
+         computerc.innerHTML=computer
+         computerscore1.innerHTML=computerscore
+         resultd1.innerHTML=result
+        computer_score(computerscore)
+         user_score(userscore)
+
+      
+          
+          
+    }
+     function Paper(){
+        let num=Math.round(Math.random()*100)
+        let computer=" ";
+        if(num>0 && num<=33)
+          {computer="Rock";}
+        else if(num>33 && num<=66)
+           {computer="Paper";}
+        else 
+       {    computer="Scissor";}
+        console.log(computer)
+        let result=" "
+        if(computer==="Rock")
+          {  result="User Wins"
+          userscore++
+     }
+        else if(computer==="Paper")
+           result="Tie"
+        else
+         { result="Computer Wins"
+            computerscore++
+         }
+           resultd1.innerHTML=result
+         userscore1.innerHTML=userscore
+         computerc.innerHTML=computer
+         computerscore1.innerHTML=computerscore
+         userc.innerHTML="Paper"
+          user_score(userscore)
+           computer_score(computerscore)
+    }
+     function Scissor(){
+        let num=Math.round(Math.random()*100)
+        let computer=" ";
+        if(num>0 && num<=33)
+          {computer="Rock";}
+        else if(num>33 && num<=66)
+           {computer="Paper";}
+        else 
+       {    computer="Scissor";}
+        console.log(computer)
+        let result=" "
+        if(computer==="Rock")
+            { result="Computer wins"
+                computerscore++
+            }
+        else if(computer==="Paper")
+          { result="User Wins"
+            userscore++
+          }
+        else
+           result="Tie"
+        userscore1.innerHTML=userscore
+         resultd1.innerHTML=result
+        computerc.innerHTML=computer
+         computerscore1.innerHTML=computerscore
+         userc.innerHTML="Scissor"
+          user_score(userscore)
+         computer_score(computerscore)
+         
+    
+    }
+    function user_score(score){
+       if(score==10){
+          resultd.innerHTML="User Wins the Battle"
+          userscore=0
+          userscore1.innerHTML=userscore 
+          computerscore=0
+          computerscore1.innerHTML=computerscore   
+       }
+    }
+     function computer_score(score){
+       if(score==10){
+          resultd.innerHTML="Computer Wins the Battle"
+          computerscore=0
+            userscore=0
+          userscore1.innerHTML=userscore 
+          computerscore1.innerHTML=computerscore   
+       }
+    }
+    
+    </script>
+</body>
+</html>
